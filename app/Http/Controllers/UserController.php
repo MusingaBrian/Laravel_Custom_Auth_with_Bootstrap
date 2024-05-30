@@ -9,6 +9,22 @@ class UserController extends Controller
 {
     public function login()
     {
-        //
+        return View('login');
+    }
+
+    public function loginPost(Request $request)
+    {
+        return View('login');
+    }
+
+
+    public function register()
+    {
+        return View('register');
+    }
+
+    public function registerPost(Request $request)
+    {
+        return View('register');
     }
 }

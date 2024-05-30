@@ -1,10 +1,14 @@
 @extends('layout.layout')
-@section('title', 'Login | ' . config('app.name'))
+@section('title', 'Register | ' . config('app.name'))
 
 @section('content')
     <section class="mt-4">
         <div class="container">
             <form style="width: 500px;" class="ms-auto me-auto mt-auto">
+                <div class="mb-3">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control"  name="username">
+                </div>
                 <div class="mb-3">
                   <label class="form-label">Email address</label>
                   <input type="email" class="form-control"  name="email">
@@ -18,4 +22,3 @@
         </div>
     </section>
 @endsection
-
