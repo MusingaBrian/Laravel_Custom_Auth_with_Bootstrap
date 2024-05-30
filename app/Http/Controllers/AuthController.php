@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -41,6 +43,31 @@ class AuthController extends Controller
 
     public function registerPost(Request $request)
     {
-        return View('register');
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email|unique',
+            'password' => 'required',
+        ]);
+
+        $data = [
+            'name' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ];
+
+        $user = User::Create($data);
+
+        if (!$user) {
+            return redirect(route('register'))->with('error', 'Sorry Something went wrong!');
+        }
+        return redirect(route('login'))->with('success', 'welcome!');
+    }
+
+    public function logOut()
+    {
+        Session::flash();
+        Auth::logout();
+
+        return redirect(route('login'));
     }
 }
