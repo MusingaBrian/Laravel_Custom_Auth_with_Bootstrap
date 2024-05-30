@@ -3,10 +3,6 @@
 
 @section('content')
 
-    @auth
-    
-    {{ auth()->user()->name }}
-        
-    @endauth
+   
     
 @endsection
