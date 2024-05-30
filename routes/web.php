@@ -3,9 +3,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome_to_custom_auth');
-});
+Route::get('/', [UserController::class, 'index'])->name('welcome');
 
 Route::get('login', [UserController::class, 'login'])->name('login');
 Route::post('login', [UserController::class])->name('login.post');

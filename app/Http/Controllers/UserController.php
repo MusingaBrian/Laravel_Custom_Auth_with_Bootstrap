@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        return View('welcome_to_custom_auth');
+    }
     public function login()
     {
         return View('login');
