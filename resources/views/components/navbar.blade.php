@@ -8,9 +8,17 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link" href="{{ route('login') }}">Login</a>
-                  <a class="nav-link" href="{{ route('register') }}">Register</a>
-                  <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+
+                  @auth
+                  
+                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                  
+                  @else
+                  
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    
+                  @endauth
                 </div>
               </div>
             </div>
