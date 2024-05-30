@@ -13,3 +13,10 @@ Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'registerPost'])->name('register.post');
 
 Route::get('logout', [AuthController::class, 'logOut'])->name('logout');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('profile', function () {
+        return 'Profile resource';
+    })->name('profile');
+});
