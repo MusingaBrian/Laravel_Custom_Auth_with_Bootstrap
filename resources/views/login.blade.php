@@ -4,7 +4,9 @@
 @section('content')
     <section class="mt-4">
         <div class="container">
-            <form style="width: 500px;" class="ms-auto me-auto mt-auto">
+            <form style="width: 500px;" class="ms-auto me-auto mt-auto" method="POST" action="{{ route('login.post') }}">
+              @csrf
+              @method('POST')
                 <div class="mb-3">
                   <label class="form-label">Email address</label>
                   <input type="email" class="form-control"  name="email">
